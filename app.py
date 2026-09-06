@@ -21,10 +21,10 @@ logger = logging.getLogger("fb-video-bot")
 
 app = Flask(__name__)
 
-VERIFY_TOKEN = os.environ["VERIFY_TOKEN"]
-PAGE_ACCESS_TOKEN = os.environ["PAGE_ACCESS_TOKEN"]
-APP_SECRET = os.environ.get("APP_SECRET")  # اختياري، ولكن موصى به بزاف
-PAGE_ID = os.environ["PAGE_ID"]
+VERIFY_TOKEN = "1234ABCD"
+PAGE_ACCESS_TOKEN = "EAATLbkq5LgwBSVtbgmR3oDAzZBM7TWm5NcuTPqX96RABH5FeimCDg4oNwSVh3tVzkqzEPLjyW1uSsQLW9ZAwtm5WaZCULYDn7ayFNOtU6NEzBk9QkgVmODEfmQZCVWpQF9oJKGh9MfDPkx43KR1XqEor4LF89CZAZBBcDQ1E2iyZAjQrCk5B1jbAY1LB3ZA1HirjfSsdkAZDZD"
+APP_SECRET = "e3fa1ca2e5e3ad34dd6624bc3d3f1979"  # اختياري، ولكن موصى به بزاف
+PAGE_ID = "1139506162590490"
 GRAPH_VERSION = os.environ.get("GRAPH_API_VERSION", "v21.0")
 GRAPH_BASE = f"https://graph.facebook.com/{GRAPH_VERSION}"
 

@@ -7,8 +7,12 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = "IGAARWboxCWU1BZAFpqYTVyOFFHcTlLd3dKcEVZAWTlORU1DRjBsQXAyREk0VDdRZAnpJajM2TU4wN2gyRUoyRlFhdEQ5NUYtNGl6TDM4cjdTbzRzemhBR213MzktS3F0RVhQZAlVlSHQ1a1dDTWlaLXNKdC1YVm9fWXF2Q0ZAFbnktbwZDZD"
-VERIFY_TOKEN = "ddddddddd"
+PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN")
+
+VERIFY_TOKEN = os.getenv(
+    "VERIFY_TOKEN",
+    "ABCD1234"
+)
 
 processed_messages = set()
 
@@ -293,7 +297,7 @@ def webhook():
 # إرسال رسالة بزر (للإعلان)
 # ==============================
 def send_button_message(user_id, text, url):
-    endpoint = f"https://graph.instagram.com/v19.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
+    endpoint = f"https://graph.instagram.com/v26.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
     payload = {
         "recipient": {"id": user_id},
         "messaging_type": "RESPONSE",
@@ -324,7 +328,7 @@ def reply_to_comment(comment_id,text):
 # إرسال رسالة نصية
 # ==============================
 def send_reply(user_id,text):
-    endpoint = f"https://graph.instagram.com/v19.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
+    endpoint = f"https://graph.instagram.com/v26.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
     payload = {"recipient":{"id":user_id},"messaging_type":"RESPONSE","message":{"text":text}}
     requests.post(endpoint,json=payload)
 
@@ -332,7 +336,7 @@ def send_reply(user_id,text):
 # إرسال فيديو
 # ==============================
 def send_video(user_id,url):
-    endpoint = f"https://graph.instagram.com/v19.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
+    endpoint = f"https://graph.instagram.com/v26.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
     payload = {
         "recipient":{"id":user_id},
         "messaging_type":"RESPONSE",
@@ -344,4 +348,4 @@ def send_video(user_id,url):
 # تشغيل السيرفر
 # ==============================
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=13833)
+    app.run(host="0.0.0.0",port=8080)

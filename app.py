@@ -22,11 +22,12 @@ app = Flask(__name__)
 # Windows:
 # set PAGE_ACCESS_TOKEN=YOUR_NEW_TOKEN
 
-PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN")
+PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN","IGAAYDbM8KbPFBZAGJDV1NDRDNENmNQLUhoMmZAUVHBxWEx6WmVBU25XSjlsenRwc2JyOWx4aXk1VlZAsb2lxR1cyMkN5ZADlpYVFhN2NoVnBza0xQUEF3X29NMmJDcjZADaE9NZA3JNQVFabEozRzQtdmlRbndwYjI4a1M2WlZAlSEhEcwZDZD"
+                             )
 
 VERIFY_TOKEN = os.getenv(
     "VERIFY_TOKEN",
-    "ddddddddd"
+    "ABCD1234"
 )
 
 # Meta Graph API version
